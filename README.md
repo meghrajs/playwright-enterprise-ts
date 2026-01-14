@@ -1,33 +1,31 @@
+![CI](https://github.com/meghrajs/playwright-enterprise-ts/actions/workflows/ci.yml/badge.svg)
+
 # Playwright Enterprise Framework (TypeScript)
 
 Enterprise-style automation framework using **Playwright + TypeScript** for **UI + API + end-to-end** testing with CI-ready execution and reliability patterns.
+
+📌 **Portfolio:** https://github.com/meghrajs/sdet-portfolio
+
+---
 
 ## Highlights
 - UI + API testing in a single framework
 - Tagging (smoke/regression), parallel runs, retries strategy
 - Artifacts on failure: screenshots, traces, videos
 - Clean structure: pages, fixtures, test data builders, utilities
-- CI-ready with GitHub Actions
+- CI-ready with GitHub Actions (artifacts + HTML report)
 
-## Project Structure
-- `tests/ui` — UI-focused tests (page objects)
-- `tests/api` — API tests (schema/contract-style validation, negative tests)
-- `tests/e2e` — end-to-end flows (UI + API combined)
-- `src/pages` — page objects
-- `src/fixtures` — fixtures and shared setup
-- `src/utils` — helpers (waits, retries, data builders)
-- `src/config` — env + config
+---
 
-## Running Tests (local)
+## Prerequisites
+- Node.js **20+** (recommended: **22**)
+- npm (bundled with Node)
 
+---
 
-## CI
-GitHub Actions workflow will run:
-- Smoke suite on PRs
-- Full regression on schedule/manual trigger
-
-## Roadmap
-- Add baseline framework skeleton (config, fixtures, page objects)
-- Add sample UI tests + API tests
-- Add end-to-end flow (API seed → UI validate)
-- Add CI workflow + badges
+## Setup (Local)
+```bash
+git clone https://github.com/meghrajs/playwright-enterprise-ts.git
+cd playwright-enterprise-ts
+npm ci
+npx playwright install --with-deps
