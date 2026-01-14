@@ -3,7 +3,7 @@ name: CI
 on:
   pull_request:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   workflow_dispatch:
   schedule:
     - cron: "0 10 * * 1-5" # weekdays 10:00 UTC
@@ -28,12 +28,21 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      - name: Run tests
+      # PRs + pushes should only run a fast, reliable smoke suite
+      - name: Run smoke tests (PR/push)
+        if: github.event_name != 'schedule'
         env:
           CI: true
           BASE_URL: https://playwright.dev
-          API_BASE_URL: https://reqres.in
-        run: npm test
+        run: npm run test:smoke
+
+      # Scheduled runs can execute a broader regression suite
+      - name: Run regression tests (schedule)
+        if: github.event_name == 'schedule'
+        env:
+          CI: true
+          BASE_URL: https://playwright.dev
+        run: npm run test:regression
 
       - name: Upload Playwright report
         if: always()
