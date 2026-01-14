@@ -29,7 +29,7 @@ git clone https://github.com/meghrajs/playwright-enterprise-ts.git
 cd playwright-enterprise-ts
 npm ci
 npx playwright install --with-deps
-```bash
+```
 
 ## Configure Environment (Optional)
 
@@ -38,7 +38,7 @@ This framework supports environment variables for UI and API base URLs.
 Copy the example file:
 ```bash
 cp .env.example .env
-```bash
+```
 
 Update values if needed:
 
@@ -52,31 +52,31 @@ Running Tests (Local)
 Run everything
 ```bash
 npm test
-```bash
+```
 Run UI tests only
 ```bash
 npm run test:ui
-```bash
+```
 
 Run API tests only
 ```bash
 npm run test:api
-```bash
+```
 
 Run smoke suite
 ```bash
 npm run test:smoke
-```bash
+```
 
 Run regression suite
 ```bash
 npm run test:regression
-```bash
+```
 
 View the HTML report
 ```bash
 npm run report
-```bash
+```
 
 Test Tagging Convention
 
